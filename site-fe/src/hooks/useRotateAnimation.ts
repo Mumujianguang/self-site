@@ -1,14 +1,27 @@
 import { CSSProperties, useEffect, useRef, useState } from "react";
 import useEvent from "./useEvent";
 
+/**
+ * 旋转状态
+ */
 export enum RotateStatus {
     running,
     paused
 }
 
+export enum RotateDirection {
+    vertical,
+    horizontal
+}
+
+/**
+ * 旋转运行时上下文
+ */
 type RotateRuntime = {
-    // 旋转角度
-    rotate: number
+    // X旋转角度
+    rotateX: number
+    // Y旋转角度
+    rotateY: number
     // 旋转速度/帧
     speed: number
     // 暂停动画：动画衰减速度/帧
@@ -19,7 +32,8 @@ type RotateRuntime = {
 
 // 默认旋转动画配置
 const defaultRotateConfig = {
-    rotate: 0,
+    rotateX: 0,
+    rotateY: 0,
     speed: 0.5,
     decaySpeed: 0.005
 }
@@ -28,23 +42,49 @@ const defaultRotateConfig = {
  * 旋转动画
  * @returns
  */
-export default function useRotateAnimation(rotateConfig: RotateRuntime = defaultRotateConfig) {
+export default function useRotateAnimation(
+    rotateConfig: RotateRuntime = defaultRotateConfig
+) {
     const rotateRuntime = useRef<RotateRuntime>({
         ...rotateConfig
     })
-
+    // 旋转样式
     const [rotateStyle, setRotateStyle] = useState<CSSProperties>({})
+    // 旋转状态
     const [rotateStatus, setRotateStatus] = useState(RotateStatus.running);
 
     /**
      * 计算下一帧的旋转角度
      */
     function nextRotateFrame(targetSpeed?: number) {
-        const { rotate, speed } = rotateRuntime.current;
-        const nextRotate = (rotate + (targetSpeed! ?? speed)) % 360;
+        const { rotateY, speed } = rotateRuntime.current;
+        const nextRotate = (rotateY + (targetSpeed! ?? speed)) % 360;
 
-        rotateRuntime.current.rotate = nextRotate
+        rotateRuntime.current.rotateY = nextRotate
     }
+
+    /**
+     * 旋转控制器
+     */
+    const rotateController = useEvent((direction: RotateDirection, config: any) => {
+        const { deg } = config;
+
+        switch (direction) {
+            case RotateDirection.horizontal:
+                rotateRuntime.current.rotateY += deg
+                break;
+            case RotateDirection.vertical:
+                rotateRuntime.current.rotateX += deg
+                break;
+            default:
+                break;
+        }
+
+        // cancelRAF();
+        setRotateStyle({
+            transform: `rotateY(${rotateRuntime.current.rotateY}deg)`
+        })
+    })
 
     /**
      * cancel rAF
@@ -65,7 +105,7 @@ export default function useRotateAnimation(rotateConfig: RotateRuntime = default
             nextRotateFrame()
 
             setRotateStyle({
-                transform: `rotateY(${rotateRuntime.current.rotate}deg)`
+                transform: `rotateY(${rotateRuntime.current.rotateY}deg)`
             })
 
             rotateAnimation()
@@ -88,7 +128,7 @@ export default function useRotateAnimation(rotateConfig: RotateRuntime = default
                 nextRotateFrame(speed)
 
                 setRotateStyle({
-                    transform: `rotateY(${rotateRuntime.current.rotate}deg)`
+                    transform: `rotateY(${rotateRuntime.current.rotateY}deg)`
                 })
     
                 if (speed > 0) {
@@ -118,5 +158,5 @@ export default function useRotateAnimation(rotateConfig: RotateRuntime = default
         return () => cancelRotateAnimation()
     }, [rotateStatus])
  
-    return { rotateStyle, setRotateStatus };
+    return { rotateStyle, setRotateStatus, rotateController };
 }

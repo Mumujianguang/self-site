@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import getDefaultMenus from './mock.data';
+import useRotateAnimation, { RotateDirection, RotateStatus } from '../../hooks/useRotateAnimation';
+import useMouseDrag from '../../hooks/useMouseDrag';
+import useEvent from '../../hooks/useEvent';
+
 import './index.less';
-import useRotateAnimation, { RotateStatus } from '../../hooks/useRotateStyle';
 
 type Menu = {
     id: string
@@ -20,16 +23,24 @@ export type Menu3DProps = {
  */
 export default function Menu3D(props: Menu3DProps) {
     const { menus = getDefaultMenus() } = props;
+    const itemRotateDeg = (360 / menus.length);
 
-    const { rotateStyle, setRotateStatus } = useRotateAnimation()
+    const { xOffset, yOffset, onMouseDown } = useMouseDrag()
+    const { rotateStyle, setRotateStatus, rotateController } = useRotateAnimation()
 
-    const itemRotateDeg = (360 / menus.length)
+    const onMouseEnter = useEvent(() => setRotateStatus(RotateStatus.paused));
+    const onMouseLeave = useEvent(() => setRotateStatus(RotateStatus.running));
+
+    useEffect(() => {
+        rotateController(RotateDirection.horizontal, { deg: xOffset * 0.2 })
+    }, [xOffset, yOffset])
 
     return (
         <div 
             className="component-menu3d"
-            onMouseEnter={() => setRotateStatus(RotateStatus.paused)}
-            onMouseLeave={() => setRotateStatus(RotateStatus.running)}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+            onMouseDown={onMouseDown}
         >
             <div
                 className="component-menu3d-rotate"
@@ -38,7 +49,6 @@ export default function Menu3D(props: Menu3DProps) {
                 }}
             >{
                 menus.map(({ id, type, title }, index) => {
-
                     return (
                         <div
                             key={id}
