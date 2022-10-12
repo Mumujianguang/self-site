@@ -1,13 +1,16 @@
 import { useState } from 'react'
+import { BrowserRouter as Router } from 'react-router-dom'
 import Home from './pages/Home'
-import reactLogo from './assets/react.svg'
 import './App.less'
 
 function App() {
     return (
-        <div>
-            <Home />
-        </div>
+        <Router>
+            <div className='app'>
+                <Home />
+            </div>
+        </Router>
+        
     )
 }
 

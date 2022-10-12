@@ -4,7 +4,7 @@ import useRotateAnimation, { RotateDirection, RotateStatus } from '../../hooks/u
 import useMouseDrag from '../../hooks/useMouseDrag';
 import useEvent from '../../hooks/useEvent';
 
-import './index.less';
+import './style.less';
 
 type Menu = {
     id: string
@@ -13,7 +13,8 @@ type Menu = {
 }
 
 export type Menu3DProps = {
-    menus?: Menu[]
+    menus?: Menu[],
+    onMenuClick?: (menu: string) => void
 }
 
 /**
@@ -22,7 +23,7 @@ export type Menu3DProps = {
  * @returns
  */
 export default function Menu3D(props: Menu3DProps) {
-    const { menus = getDefaultMenus() } = props;
+    const { menus = getDefaultMenus(), onMenuClick = () => {} } = props;
     const itemRotateDeg = (360 / menus.length);
 
     const { xOffset, yOffset, onMouseDown } = useMouseDrag()
@@ -56,6 +57,7 @@ export default function Menu3D(props: Menu3DProps) {
                             style={{
                                 transform: `rotateY(${itemRotateDeg * index}deg) translateZ(350px)`
                             }}
+                            onClick={() => onMenuClick(id)}
                         >
                             <div className="component-menu3d-menu-content">{title}</div>
                             <div className="component-menu3d-menu-line"></div>
