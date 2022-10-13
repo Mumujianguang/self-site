@@ -1,5 +1,6 @@
 import { ReactComponentElement, useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 import './style.less'
 
@@ -24,25 +25,38 @@ interface EffectRouterProps {
 export default function EffectRouter(props: EffectRouterProps) {
     const { routers, activeRoute, activeAnimation = ActiveAnimation.scale } = props;
 
+    const location = useLocation();
+
+    console.log(location);
+
     return (
         <div className='component-effectrouter'>
-            <Routes>{
-                routers.map((route, index) => (
-                    <Route
-                        key={index}
-                        path={`/${route.name}`}
-                        element={
-                            <div
+            <TransitionGroup>
+                <CSSTransition
+                    key={location.pathname}
+                    timeout={1000}
+                    classNames="page"
+                >
+                    <Routes
+                        location={location}
+                    >{
+                        routers.map((route, index) => (
+                            <Route
                                 key={index}
-                                className={`component-effectrouter-route ${route.name === activeRoute ? `${activeAnimation} active` : ''}`}
-                            >{
-                                route.component
-                            }</div>
-                        }
-                    ></Route>
-                ))
-            }</Routes>{
-            
-        }</div>
+                                path={`/${route.name}`}
+                                element={
+                                    <div
+                                        key={index}
+                                        className={`component-effectrouter-route ${route.name === activeRoute ? `${activeAnimation} active` : ''}`}
+                                    >{
+                                        route.component
+                                    }</div>
+                                }
+                            ></Route>
+                        ))
+                    }</Routes>
+                </CSSTransition>
+            </TransitionGroup>
+        </div>
     );  
 }

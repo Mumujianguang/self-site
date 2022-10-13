@@ -58,6 +58,8 @@ export default function useMouseDrag() {
      * 鼠标抬起
      */
     const onMouseUp = useEvent((e: MouseEvent) => {
+        e.stopPropagation();
+
         setOffset({
             xOffset: 0,
             yOffset: 0
