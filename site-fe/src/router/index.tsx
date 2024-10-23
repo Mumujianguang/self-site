@@ -1,3 +1,4 @@
+import Intro from "@/pages/Intro";
 import Doc from "../pages/Doc";
 import Nav from "../pages/Nav";
 import Notes from "../pages/Notes";
@@ -5,6 +6,12 @@ import Settings from "../pages/Settings";
 import Tools from "../pages/Tools";
 
 export const router = [
+    {
+        id: '',
+        type: 'default',
+        title: '首页',
+        component: <Intro />
+    },
     {
         id: 'doc',
         type: 'default',

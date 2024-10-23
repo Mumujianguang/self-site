@@ -7,5 +7,11 @@ export default defineConfig({
     plugins: [
         react(),
         // viteSsrPlugin()
-    ]
+    ],
+
+    resolve: {
+        alias: {
+            '@': '/src'
+        }
+    }
 })

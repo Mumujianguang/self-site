@@ -5,9 +5,11 @@
 }   
 
 .component-menu3d {
-    position: relative;
-    width: 1000px;
-    height: 700px;
+    position: fixed;
+    top: -320px;
+    right: calc(50% - 250px);
+    width: 500px;
+    height: 500px;
     background-color: transparent;
     border-radius: 20px;
 
@@ -17,6 +19,8 @@
 
     margin: auto;
     overflow: hidden;
+
+    z-index: 1000;
 
     &-rotate {
         width: 100%;
@@ -40,15 +44,17 @@
         height: 320px;
 
         border-radius: 52px;
-        box-shadow: 0px 0px 50px 2px #ff440050;
+        box-shadow: 0px 0px 20px 2px #7a63ff50;
         // background-color: rgba(0, 0, 0, 0.1);
 
         .flexCenter();
         overflow: hidden;
 
+        backface-visibility: hidden;
+
         transform-style: preserve-3d;
         transition: all .2s linear;
-        animation: randomColors 10s linear infinite;
+        // animation: randomColors 10s linear infinite;
 
         cursor: pointer;
         // -webkit-box-reflect: below 10px -webkit-linear-gradient(transparent, red);
@@ -56,14 +62,19 @@
         &-content {
             width: 100%;
             height: 100%;
+            color: #acb1e7;
             border-radius: 52px;
-            background-color: rgba(35, 35, 35, 0.5);
+            background-image: linear-gradient(45deg, #39419a4b, #6f5796be);
             transition: all .2s linear;
 
+            font-weight: bolder;
+
             .flexCenter();
+            align-items: end;
+            padding-bottom: 60px;
 
             &:hover {
-                background-color: rgba(111, 111, 111, 0.1);
+                background-color: #767fff54;
             }
         }
     }
@@ -81,18 +92,18 @@
 
 @keyframes randomColors {
     0% {
-        box-shadow: 0px 0px 50px 2px #ff440050;
+        box-shadow: 0px 0px 20px 2px #b0a8ff50;
     }
     25% {
-        box-shadow: 0px 0px 50px 2px #002fff50;
+        box-shadow: 0px 0px 20px 2px #4761d450;
     }
     50% {
-        box-shadow: 0px 0px 50px 2px #c752cb50;
+        box-shadow: 0px 0px 20px 2px #61e2ff50;
     }
     75% {
-        box-shadow: 0px 0px 50px 2px #8ad85250;
+        box-shadow: 0px 0px 20px 2px #77a4ff50;
     }
     100% {
-        box-shadow: 0px 0px 50px 2px #ff440050;
+        box-shadow: 0px 0px 20px 2px #3392ff50;
     }
 }

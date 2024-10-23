@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import getDefaultMenus from './mock.data';
-import useRotateAnimation, { RotateDirection, RotateStatus } from '../../hooks/useRotateAnimation';
-import useMouseDrag from '../../hooks/useMouseDrag';
-import useEvent from '../../hooks/useEvent';
+import useRotateAnimation, { RotateDirection, RotateStatus } from '@/hooks/useRotateAnimation';
+import useMouseDrag from '@/hooks/useMouseDrag';
+import useEvent from '@/hooks/useEvent';
 
 import './style.less';
 
@@ -55,7 +55,7 @@ export default function Menu3D(props: Menu3DProps) {
                             key={id}
                             className="component-menu3d-menu"
                             style={{
-                                transform: `rotateY(${itemRotateDeg * index}deg) translateZ(350px)`
+                                transform: `rotateY(${itemRotateDeg * index}deg) translateZ(200px)`
                             }}
                             onClick={() => onMenuClick(id)}
                         >

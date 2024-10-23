@@ -34,7 +34,7 @@ type RotateRuntime = {
 const defaultRotateConfig = {
     rotateX: 0,
     rotateY: 0,
-    speed: 0.5,
+    speed: 0.2,
     decaySpeed: 0.005
 }
 

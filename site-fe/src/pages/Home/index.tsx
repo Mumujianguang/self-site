@@ -1,19 +1,37 @@
 import React, { useState } from 'react';
 import { Routes, useNavigate } from 'react-router-dom';
-import EffectRouter from '../../components/EffectRouter';
-import Menu3D from '../../components/Menu3D';
-import { router } from '../../router';
+import { GitHubLogoIcon } from '@radix-ui/react-icons'
+import EffectRouter from '@/router/EffectRouter';
+import Menu3D from '@/components/Menu3D';
+import { router } from '@/router';
 
-import './style.less'
+import styles from './style.module.less'
+import Signature from '@/components/Signature';
 
 export default function Home(props: any) {
-    const [activeRoute, setActiveRoute ] = useState('menu');
     const navigator = useNavigate()
+    const [activeRoute, setActiveRoute ] = useState('menu');
 
     const routers = [
-        {
-            name: 'menu',
-            component: (
+        ...router.map((route) => ({
+            name: route.id,
+            component: route.component
+        }))
+    ]
+
+    const onGithubLogoIconClick = () => {
+        window.open('https://github.com/Mumujianguang')
+    }
+
+    return (
+        <div className={styles["mm-site-home"]}>
+            {/* header */}
+            <div className={styles['mm-site-home-header']}>
+                <div className={styles['mm-site-home-header-left']}>
+                    <div className={styles['mm-site-home-header-avatar']}></div>
+                    <Signature />
+                </div>
+                
                 <Menu3D
                     menus={router.map(({ id, title, type }) => ({
                         id,
@@ -25,20 +43,18 @@ export default function Home(props: any) {
                         navigator(`/${id}`)
                     }}
                 />
-            )
-        },
-        ...router.map((route) => ({
-            name: route.id,
-            component: route.component
-        }))
-    ]
 
-    return (
-        <div className="mm-site-home">
-            <EffectRouter
-                routers={routers}
-                activeRoute={activeRoute}
-            />
+                <div className={styles['mm-site-home-header-right']}>
+                    <GitHubLogoIcon width={'36px'} height={'36px'} onClick={onGithubLogoIconClick} />
+                </div>
+            </div>
+
+            <div className={styles['mm-site-home-content']}>
+                <EffectRouter
+                    routers={routers}
+                    activeRoute={activeRoute}
+                />
+            </div>
         </div>
     )
 }
