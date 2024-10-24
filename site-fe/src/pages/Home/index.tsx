@@ -33,10 +33,11 @@ export default function Home(props: any) {
                 </div>
                 
                 <Menu3D
-                    menus={router.map(({ id, title, type }) => ({
+                    menus={router.map(({ id, title, type, icon }) => ({
                         id,
                         title,
-                        type
+                        type,
+                        icon
                     }))}
                     onMenuClick={(id) => {
                         setActiveRoute(id)
@@ -45,7 +46,7 @@ export default function Home(props: any) {
                 />
 
                 <div className={styles['mm-site-home-header-right']}>
-                    <GitHubLogoIcon width={'36px'} height={'36px'} onClick={onGithubLogoIconClick} />
+                    <GitHubLogoIcon width={'24px'} height={'24px'} onClick={onGithubLogoIconClick} />
                 </div>
             </div>
 

@@ -1,19 +1,20 @@
-import React, { useEffect } from 'react';
-import getDefaultMenus from './mock.data';
+import React, { FunctionComponent, useEffect } from 'react';
 import useRotateAnimation, { RotateDirection, RotateStatus } from '@/hooks/useRotateAnimation';
 import useMouseDrag from '@/hooks/useMouseDrag';
 import useEvent from '@/hooks/useEvent';
 
 import './style.less';
+import { IconProps } from '@radix-ui/themes';
 
 type Menu = {
     id: string
     type: string
     title: string
+    icon: FunctionComponent<IconProps>
 }
 
 export type Menu3DProps = {
-    menus?: Menu[],
+    menus: Menu[],
     onMenuClick?: (menu: string) => void
 }
 
@@ -23,7 +24,7 @@ export type Menu3DProps = {
  * @returns
  */
 export default function Menu3D(props: Menu3DProps) {
-    const { menus = getDefaultMenus(), onMenuClick = () => {} } = props;
+    const { menus, onMenuClick = () => {} } = props;
     const itemRotateDeg = (360 / menus.length);
 
     const { xOffset, yOffset, onMouseDown } = useMouseDrag()
@@ -49,7 +50,7 @@ export default function Menu3D(props: Menu3DProps) {
                     ...rotateStyle
                 }}
             >{
-                menus.map(({ id, type, title }, index) => {
+                menus.map(({ id, type, title, icon: Icon }, index) => {
                     return (
                         <div
                             key={id}
@@ -59,7 +60,12 @@ export default function Menu3D(props: Menu3DProps) {
                             }}
                             onClick={() => onMenuClick(id)}
                         >
-                            <div className="component-menu3d-menu-content">{title}</div>
+                            <div className="component-menu3d-menu-content">
+                                <div className='component-menu3d-menu-content-title'>
+                                    <Icon width={16} height={16} />
+                                    <div>{title} </div>
+                                </div>
+                            </div>
                             <div className="component-menu3d-menu-line"></div>
                         </div>
                     )

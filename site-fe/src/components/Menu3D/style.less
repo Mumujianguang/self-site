@@ -6,7 +6,7 @@
 
 .component-menu3d {
     position: fixed;
-    top: -320px;
+    top: -350px;
     right: calc(50% - 250px);
     width: 500px;
     height: 500px;
@@ -44,8 +44,7 @@
         height: 320px;
 
         border-radius: 52px;
-        box-shadow: 0px 0px 20px 2px #7a63ff50;
-        // background-color: rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 0px 20px 2px #ffffff50;
 
         .flexCenter();
         overflow: hidden;
@@ -54,28 +53,37 @@
 
         transform-style: preserve-3d;
         transition: all .2s linear;
-        // animation: randomColors 10s linear infinite;
 
         cursor: pointer;
-        // -webkit-box-reflect: below 10px -webkit-linear-gradient(transparent, red);
+        // -webkit-box-reflect: below 60px -webkit-linear-gradient(transparent, red);
 
         &-content {
             width: 100%;
             height: 100%;
-            color: #acb1e7;
+            color: #d3d7ff;
             border-radius: 52px;
-            background-image: linear-gradient(45deg, #39419a4b, #6f5796be);
+            background-image: linear-gradient(0deg, #399a7f41, #576496be);
             transition: all .2s linear;
 
             font-weight: bolder;
 
             .flexCenter();
             align-items: end;
-            padding-bottom: 60px;
+            padding-bottom: 24px;
 
             &:hover {
                 background-color: #767fff54;
             }
+        }
+
+        &-content-title {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+
+            gap: 8px;
         }
     }
 
