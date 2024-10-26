@@ -1,16 +1,32 @@
-import { Text, Blockquote, Code, Separator, Heading, Badge } from '@radix-ui/themes'
+import { Text, Blockquote, Code, Separator, Heading, Badge, Tooltip, Avatar, Link } from '@radix-ui/themes'
 import styles from './style.module.less'
-import { useRef } from 'react'
-import { MY_TECHNOLOGY_STACK } from '@/constants'
+import { useEffect, useRef, useState } from 'react'
+import classnames from 'classnames'
+import { MY_LINKS, MY_TECHNOLOGY_STACK } from '@/constants'
+import useBeginShowing from '@/hooks/useBeginShowing'
+import RS7_IMAGE from '@/assets/rs7.jpg'
 
 const splitter = <Separator my="1" style={{ backgroundColor: 'transparent' }} />
 
 export default function Intro() {
     const elementRef = useRef<HTMLDivElement | null>(null)
-    
+
+    const { beginShowing } = useBeginShowing()
+
     return (
-        <div className={styles['intro']} ref={elementRef}>
-            <Text className={styles['intro-main']}>
+        <div
+            ref={elementRef}
+            className={classnames([
+                styles['intro'],
+                !beginShowing && styles['hidden']
+            ])}
+        >
+            <Text
+                className={classnames([
+                    styles['intro-main'],
+                    styles['stage-1']
+                ])}
+            >
                 <Blockquote>
                     <Heading as='h1'>
                         Hey! 👋 
@@ -37,14 +53,45 @@ export default function Intro() {
                 </Text>
                 {splitter}
                 <Text size={'1'}>
-                    运动爱好是 <Text color='indigo'>骑行</Text>，成都天府绿道常驻选手，有一辆公路车<Text color='indigo'>「XDS RS7」</Text>
+                    运动爱好是 <Text color='indigo'>骑行</Text>，成都天府绿道常驻选手，有一辆公路车
+                    <Tooltip
+                        content={
+                            <img src={RS7_IMAGE} width={300} />
+                        }
+                    >
+                        <Text color='indigo'>「XDS RS7」</Text>
+                    </Tooltip>
+                </Text>
+                {splitter}
+                <Text size={'1'}>你可以在下面的平台找到我 👉</Text>
+                {splitter}
+                <Text size={'1'}>
+                    {
+                        MY_LINKS.map((item, index) => (
+                            <Link
+                                key={index}
+                                href={item.url}
+                                color='green'
+                                highContrast
+                                target='_blank'
+                                style={{ color: 'var(--accent-a11)' }}
+                            >
+                                「 {item.name} 」
+                            </Link>
+                        ))
+                    }
                 </Text>
             </Text>
             
             <Separator my="6" size="4" />
 
             {/* tags of tech stack */}
-            <div className={styles['intro-tech-stack']}>{
+            <div
+                className={classnames([
+                    styles['intro-tech-stack'],
+                    styles['stage-2']
+                ])}
+            >{
                 MY_TECHNOLOGY_STACK.map((item, index) => (
                     <Badge
                         key={index}

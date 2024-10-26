@@ -9,6 +9,7 @@ specifiers:
   '@types/react-transition-group': ^4.4.5
   '@vitejs/plugin-react': ^2.1.0
   animejs: ^3.2.2
+  classnames: ^2.5.1
   less: ^4.2.0
   lodash-es: ^4.17.21
   react: ^18.2.0
@@ -25,6 +26,7 @@ dependencies:
   '@radix-ui/themes': 3.1.4_6hrpdt74nuubt2lijsfizev3cu
   '@types/react-transition-group': registry.npmmirror.com/@types/react-transition-group/4.4.5
   animejs: 3.2.2
+  classnames: 2.5.1
   lodash-es: registry.npmmirror.com/lodash-es/4.17.21
   react: registry.npmmirror.com/react/18.2.0
   react-dom: registry.npmmirror.com/react-dom/18.2.0_react@18.2.0
@@ -1254,6 +1256,10 @@ packages:
 
   /classnames/2.3.2:
     resolution: {integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==}
+    dev: false
+
+  /classnames/2.5.1:
+    resolution: {integrity: sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==}
     dev: false
 
   /copy-anything/2.0.6:

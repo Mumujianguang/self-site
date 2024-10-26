@@ -16,4 +16,30 @@
         gap: 8px;
         width: 100%;
     }
+
+    .stage-1 {
+        opacity: 1;
+        transform: translateX(0px);
+        transition: all 1.5s ease-in-out;
+    }
+    .stage-2 {
+        opacity: 1;
+        transform: translateX(0px);
+        transition: all 1s ease-in-out;
+        transition-delay: 500ms;
+    }
+}
+
+.hidden {
+    .stage-1 {
+        opacity: 0;
+        transform: translateX(-300px);
+        transition: all 1s ease-in-out;
+    }
+    .stage-2 {
+        opacity: 0;
+        transform: translateX(300px);
+        transition: all 1s ease-in-out;
+        transition-delay: 200ms;
+    }
 }

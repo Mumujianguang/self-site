@@ -59,3 +59,22 @@ export const MY_TECHNOLOGY_STACK = [
 
     'Jest',
 ]
+
+export const MY_LINKS = [
+    {
+        name: 'Github',
+        url: 'https://github.com/Mumujianguang',
+    },
+    {
+        name: '掘金',
+        url: 'https://juejin.cn/user/3500477113176686',
+    },
+    {
+        name: 'segmentfault(思否)',
+        url: 'https://segmentfault.com/u/18227192769'
+    },
+    {
+        name: 'X',
+        url: 'https://x.com/mmjianguang',
+    },
+]
