@@ -6,6 +6,10 @@
   "scripts": {
     "dev:fe": "pnpm --filter ./site-fe run dev",
     "dev:server": "pnpm --filter ./site-server run start",
+
+    "build:fe": "pnpm --filter ./site-fe run build",
+    "build": "pnpm run build:fe",
+
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,5 +27,9 @@
     "less": "^4.1.3",
     "vite": "^3.1.2",
     "vite-ssr": "^0.16.0"
+  },
+  "dependencies": {
+    "execa": "^9.5.1",
+    "picocolors": "^1.1.1"
   }
 }
