@@ -39,8 +39,8 @@ export default function Intro() {
                 {splitter}
                 <Code variant='outline' size={'3'}>{` INTJ · Front-End Developer · Ant Design Contributor`}</Code>
                 {splitter}
-                <Text size={'2'}>一个「爱捣腾技术.间歇性写作.拥抱开源贡献」的骑行爱好者</Text>
-
+                <Text size={'2'} align={'right'}>一个「爱捣腾技术.间歇性写作.拥抱开源贡献」的骑行爱好者</Text>
+                
                 <Separator my="5" size="4" />
                 
                 <Text size={'1'}>这里是我在浩瀚的互联网上的小基地，欢迎友友们来访～</Text>
@@ -63,8 +63,7 @@ export default function Intro() {
                     </Tooltip>
                 </Text>
                 {splitter}
-                <Text size={'1'}>你可以在下面的平台找到我 👉</Text>
-                {splitter}
+                <Text size={'1'}>可以在这些平台找到我 👉</Text>
                 <Text size={'1'}>
                     {
                         MY_LINKS.map((item, index) => (
@@ -81,27 +80,27 @@ export default function Intro() {
                         ))
                     }
                 </Text>
-            </Text>
-            
-            <Separator my="6" size="4" />
 
-            {/* tags of tech stack */}
-            <div
-                className={classnames([
-                    styles['intro-tech-stack'],
-                    styles['stage-2']
-                ])}
-            >{
-                MY_TECHNOLOGY_STACK.map((item, index) => (
-                    <Badge
-                        key={index}
-                        variant='outline'
-                        size={'2'}
-                    >
-                        {item}
-                    </Badge>
-                ))
-            }</div>
+                <Separator my="4" size="4" />
+
+                {/* tags of tech stack */}
+                <div
+                    className={classnames([
+                        styles['intro-tech-stack'],
+                        styles['stage-2']
+                    ])}
+                >{
+                    MY_TECHNOLOGY_STACK.map((item, index) => (
+                        <Badge
+                            key={index}
+                            variant='outline'
+                            size={'2'}
+                        >
+                            {item}
+                        </Badge>
+                    ))
+                }</div>
+            </Text>  
         </div>
     )
 }
