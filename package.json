@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev:fe": "pnpm --filter ./site-fe run dev",
+    "dev:server": "pnpm --filter ./site-server run start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

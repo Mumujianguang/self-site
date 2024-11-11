@@ -1,10 +1,9 @@
 import Intro from "@/pages/Intro";
 import Doc from "../pages/Doc";
-import Nav from "../pages/Nav";
 import Notes from "../pages/Notes";
-import Settings from "../pages/Settings";
+import Sport from "../pages/Sport";
 import Tools from "../pages/Tools";
-import { FileTextIcon, GearIcon, HomeIcon, MixIcon, ReaderIcon } from "@radix-ui/react-icons";
+import { FileTextIcon, HomeIcon, MixIcon, ReaderIcon, SunIcon } from "@radix-ui/react-icons";
 
 export const router = [
     {
@@ -36,10 +35,10 @@ export const router = [
         component: <Tools />
     },
     {
-        id: 'settings',
+        id: 'sport',
         type: 'default',
-        icon: GearIcon,
-        title: '设置',
-        component: <Settings />
+        icon: SunIcon,
+        title: '运动数据',
+        component: <Sport />
     }
 ]
