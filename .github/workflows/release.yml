@@ -1,10 +1,6 @@
 name: Deploy to mmjg's site
 
 on:
-  push:
-    branches:
-      - dev
-
   pull_request:
     types:
       - closed
@@ -20,6 +16,8 @@ jobs:
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4.0.0
+        with:
+          version: 7.27.0
 
       - name: Install dependencies
         run: pnpm install
