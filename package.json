@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev:fe": "pnpm --filter ./site-fe run dev",
-    "dev:server": "pnpm --filter ./site-server run start",
+    "dev:fe": "pnpm --filter ./packages/site-fe run dev",
+    "dev:server": "pnpm --filter ./packages/site-server run start",
 
-    "build:fe": "pnpm --filter ./site-fe run build",
+    "build:fe": "pnpm --filter ./packages/site-fe run build",
     "build": "pnpm run build:fe",
 
     "test": "echo \"Error: no test specified\" && exit 1"
