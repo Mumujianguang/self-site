@@ -16,8 +16,6 @@ jobs:
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4.0.0
-        with:
-          version: 7.27.0
 
       - name: Install dependencies
         run: pnpm install -r
@@ -33,4 +31,4 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           
           SOURCE: ./site-fe/dist
-          TARGET: /opt/${{ secrets.DEPLOY_TARGET }}
+          TARGET: /opt/${{ secrets.DEPLOY_FE_TARGET }}
