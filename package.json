@@ -6,11 +6,9 @@
   "scripts": {
     "dev:fe": "pnpm --filter ./packages/site-fe run dev",
     "dev:server": "pnpm --filter ./packages/site-server run start:dev",
-
     "build:fe": "pnpm --filter ./packages/site-fe run build",
     "build:server": "pnpm --filter ./packages/site-server run build",
     "build": "pnpm run build:fe",
-
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -26,6 +24,7 @@
   "homepage": "https://github.com/18227192769/self-site#readme",
   "packageManager": "pnpm@9.12.3",
   "devDependencies": {
+    "dotenv": "^16.4.5",
     "less": "^4.1.3",
     "vite": "^3.1.2",
     "vite-ssr": "^0.16.0"

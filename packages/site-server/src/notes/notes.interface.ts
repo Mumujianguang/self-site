@@ -1,7 +1,6 @@
 export interface INoteRecord {
     id: string;
-    src: string;
-    icon: string;
+    icon?: string;
     title: string;
 }
 
