@@ -1,9 +1,8 @@
 import { ApiResponse } from '@nestjs/swagger';
-import { Controller, Get, HttpException, HttpStatus, Param, Query } from '@nestjs/common';
+import { Controller, Get, HttpException, HttpStatus, Query } from '@nestjs/common';
 import { withBaseUrl } from 'src/utils';
-import ResponseDto from 'src/dto';
 import { NotesService } from './notes.service';
-import { NotesDetailResponse, NotesListResponse } from './notes.dto';
+import { NotesDetailListResponse, NotesDetailResponse, NotesListResponse } from './notes.dto';
 
 @Controller(withBaseUrl('notes'))
 export class NotesController {
@@ -25,6 +24,22 @@ export class NotesController {
             return new NotesListResponse(list);
         } catch (error) {
             throw new HttpException(error.message, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @Get('/detailList')
+    @ApiResponse({
+        status: HttpStatus.OK,
+        description: '笔记详情列表',
+        type: NotesDetailListResponse
+    })
+    async getDetailList(): Promise<NotesDetailListResponse> {
+        try {
+            const list = await this.notesService.getDetailList();
+
+            return new NotesDetailListResponse(list);
+        } catch (error) {
+            throw new HttpException(error.message, HttpStatus.INTERNAL_SERVER_ERROR)
         }
     }
 

@@ -23,6 +23,28 @@ export class NotesListResponse extends ResponseDto<INotes['list']> {
 }
 
 /**
+ * response of notes detail list
+ */
+export class NotesDetailListResponse extends ResponseDto<INotes['detailList']> {
+    @ApiProperty({
+        type: 'array',
+        items: {
+            type: 'object',
+            required: ['id', 'title', 'content', 'summary'],
+            properties: {
+                id: { type: 'string' },
+                icon: { type: 'string' },
+                title: { type: 'string' },
+                content: { type: 'string' },
+                summary: { type: 'string' }
+            }
+        },
+        description: '笔记详情列表'
+    })
+    public data: INotes['detailList'];
+}
+
+/**
  * response of notes detail
  */
 export class NotesDetailResponse extends ResponseDto<string> {
