@@ -27,21 +27,24 @@
 }
   
 .page-enter {
-    transform: scale(0);
+    opacity: 0;
+    transform: translateX(100%) scale(0);
 }
   
 .page-enter-active {
     opacity: 1;
-    transform: scale(1);
-    transition: transform .4s linear;
-    transition-delay: .6s;
+    transform: translateX(0) scale(1);
+    transition: all .6s linear;
+    transition-delay: .3s;
 }
   
 .page-exit {
-    transform: scale(1);
+    opacity: 1;
+    transform: translateX(0) scale(1);
 }
   
 .page-exit-active {
-    transform: scale(0);
-    transition: transform .6s cubic-bezier(1, 0.25, 1, 1);
+    opacity: 0;
+    transform: translateX(-100%) scale(0);
+    transition: all .6s cubic-bezier(1, 0.25, 1, 1);
 }
