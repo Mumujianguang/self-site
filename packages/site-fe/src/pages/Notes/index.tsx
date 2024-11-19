@@ -6,6 +6,7 @@ import { useNotesStore } from './store'
 import { Grid } from '@radix-ui/themes'
 import Modal from '@/components/Modal'
 import 'highlight.js/styles/atom-one-dark.min.css'
+import EntryAnimationBox from '@/components/EntryAnimationBox'
 
 /**
  * 笔记列表
@@ -22,10 +23,12 @@ export default function Notes() {
         <div className={styles['notes']}>
             <Grid className={styles['notes-content']} columns="1" gap="5">{
                 store.notes.map((note, index) => (
-                    <div key={index} className={styles['notes-content-item']} onClick={() => store.setActiveNote(note)}>
-                        <div className={styles['notes-content-item-title']}>「 {note.title} 」</div>
-                        <div className={styles['notes-content-item-summary']}>{note.content}</div>
-                    </div>
+                    <EntryAnimationBox key={index} >
+                        <div className={styles['notes-content-item']} onClick={() => store.setActiveNote(note)}>
+                            <div className={styles['notes-content-item-title']}>「 {note.title} 」</div>
+                            <div className={styles['notes-content-item-summary']}>{note.content}</div>
+                        </div>                     
+                    </EntryAnimationBox>
                 ))
             }</Grid>
 
