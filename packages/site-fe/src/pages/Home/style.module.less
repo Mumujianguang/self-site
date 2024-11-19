@@ -1,13 +1,13 @@
 @property --dynamic-bg-color {
     syntax: '<color>';
     inherits: true;
-    initial-value: #27ae60;
+    initial-value: #30e08e;
   }
 
 .mm-site-home {
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(45deg, #2c3e50, var(--dynamic-bg-color));
+    background-image: linear-gradient(45deg, #37315b, var(--dynamic-bg-color));
     animation: dynamicBg 10s linear infinite;
 
     .mm-site-home-header {
@@ -51,12 +51,12 @@
 
 @keyframes dynamicBg {
     0% {
-        --dynamic-bg-color: #27ae60;
+        --dynamic-bg-color: #30e08e;
     }
     50% {
-        --dynamic-bg-color: #37a688;
+        --dynamic-bg-color: #37a672;
     }
     100% {
-        --dynamic-bg-color: #27ae60;
+        --dynamic-bg-color: #30e08e;
     }
 }

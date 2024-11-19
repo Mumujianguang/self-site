@@ -3,12 +3,13 @@
     width: 100%;
     height: 100%;
     backdrop-filter: blur(6px);
+    background-color: rgba(53, 77, 67, 0.292);
 
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 24px;
+    padding: 32px;
     box-sizing: border-box;
 
     opacity: 0;
@@ -27,7 +28,7 @@
         width: 90%;
         height: 100%;
         overflow: auto;
-        border-radius: 20px;
+        border-radius: 10px;
         background-color: rgba(0, 0, 0, 0.38);
     }
 
@@ -37,6 +38,27 @@
         padding: 16px 24px;
         backdrop-filter: blur(20px);
         background-color: rgba(111, 129, 236, 0.35);
+    }
+
+    .modal-body-progress {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        position: absolute;
+        bottom: 0px;
+        left: 50%;
+        width: 30%;
+        height: 32px;
+        transform: translateX(-50%);
+
+        .modal-body-progress-text {
+            width: 54px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: bold;
+            color: rgb(255, 255, 255);
+        }
     }
 
     .modal-body-content {
