@@ -20,8 +20,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build
-        run: pnpm run build
+      - name: release
+        run: pnpm run release
 
       - name: Deploy to aliyun ECS
         uses: easingthemes/ssh-deploy@v5.1.0
@@ -30,5 +30,8 @@ jobs:
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           
-          SOURCE: packages/site-fe/dist/
-          TARGET: /opt/${{ secrets.DEPLOY_FE_TARGET }}
+          SOURCE: dist/
+          TARGET: /opt/site/${{ secrets.DEPLOY_FE_TARGET }}
+
+          SCRIPT_AFTER: |
+            pm2 start /opt/site/${{ secrets.DEPLOY_FE_TARGET }}/server/main.js
