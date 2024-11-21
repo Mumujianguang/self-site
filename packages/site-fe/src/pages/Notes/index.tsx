@@ -26,7 +26,7 @@ export default function Notes() {
                     <EntryAnimationBox key={index} >
                         <div className={styles['notes-content-item']} onClick={() => store.setActiveNote(note)}>
                             <div className={styles['notes-content-item-title']}>「 {note.title} 」</div>
-                            <div className={styles['notes-content-item-summary']}>{note.content}</div>
+                            <div className={styles['notes-content-item-summary']}>{note.summary ?? note.content}</div>
                         </div>                     
                     </EntryAnimationBox>
                 ))

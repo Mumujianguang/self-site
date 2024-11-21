@@ -15,6 +15,11 @@ export class NotesService {
         return title.slice(0, lastIndex)
     }
 
+    private async getMetaJson() {
+        const json = await fs.promises.readFile(`${NOTES_ROOT_DIR}/meta.json`, 'utf-8')
+        return JSON.parse(json)
+    }
+
     /**
      * 获取笔记列表
      * @returns
@@ -22,7 +27,7 @@ export class NotesService {
     public async getList(): Promise<INotes['list']> {
         const files = await fs.promises.readdir(NOTES_ROOT_DIR)
 
-        return files.map((file, index) => {
+        return files.filter(file => file.endsWith('.md')).map((file, index) => {
             const title = this.parseTitle(file)
 
             return {
@@ -38,14 +43,16 @@ export class NotesService {
      */
     public async getDetailList(): Promise<INotes['detailList']> {
         const list = await this.getList()
-
+        const metaJson = await this.getMetaJson()
+        
         const detailList = await Promise.all(list.map(async item => {
             const content =  await fs.promises.readFile(this.genPath(item.title), 'utf-8')
+            const summary = metaJson[item.title]?.summary || content.slice(0, 300)
 
             return {
                 ...item,
                 content,
-                summary: content.slice(0, 300)
+                summary
             }
         }))
 
@@ -64,6 +71,7 @@ export class NotesService {
             throw new Error(`笔记不存在: [${title}]`)
         }
 
-        return fs.promises.readFile(this.genPath(title), 'utf-8')
+        const content = await fs.promises.readFile(this.genPath(title), 'utf-8')
+        return content
     }
 }
