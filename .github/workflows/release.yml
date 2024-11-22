@@ -33,5 +33,7 @@ jobs:
           SOURCE: dist/
           TARGET: /opt/site/${{ secrets.DEPLOY_FE_TARGET }}
 
+          SCRIPT_BEFORE: |
+            pm2 stop site-server
           SCRIPT_AFTER: |
-            pm2 start /opt/site/${{ secrets.DEPLOY_FE_TARGET }}/server/main.js
+            pm2 start /opt/site/${{ secrets.DEPLOY_FE_TARGET }}/server/main.js --name site-server
