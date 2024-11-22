@@ -7,6 +7,7 @@
   "scripts": {
     "dev:fe": "pnpm --filter ./packages/site-fe run dev",
     "dev:server": "pnpm --filter ./packages/site-server run start:dev",
+    "prod:server": "pnpm --filter ./packages/site-server run start:prod",
     "build:fe": "pnpm --filter ./packages/site-fe run build",
     "build:server": "pnpm --filter ./packages/site-server run build",
     "build": "pnpm run build:fe && pnpm run build:server",
