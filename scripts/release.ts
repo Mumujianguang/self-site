@@ -10,10 +10,15 @@ const ROOT = path.join(__dirname, '../');
 (async () => {
     await $`rm -rf ${ROOT}/dist`;
     await $`mkdir ${ROOT}/dist`;
+    await $`mkdir ${ROOT}/dist/server`;
 
+    // fe
     await $`mv ${ROOT}/packages/site-fe/dist ${ROOT}/dist/fe`;
-    await $`mv ${ROOT}/packages/site-server/dist ${ROOT}/dist/server`;
 
-    await $`cp ${ROOT}/packages/site-server/.env.production ${ROOT}/dist/`;
+    // server
+    await $`mv ${ROOT}/packages/site-server/dist/ ${ROOT}/dist/server/dist/`;
+    await $`cp ${ROOT}/packages/site-server/.env.production ${ROOT}/dist/server`;
+    await $`cp ${ROOT}/packages/site-server/package.json ${ROOT}/dist/server`;
+
     await $`cp -r ${ROOT}docs ${ROOT}dist`;
 })()
