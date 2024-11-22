@@ -36,4 +36,6 @@ jobs:
           SCRIPT_BEFORE: |
             pm2 stop site-server
           SCRIPT_AFTER: |
-            pm2 start /opt/site/${{ secrets.DEPLOY_FE_TARGET }}/server/main.js --name site-server
+            cd /opt/site/${{ secrets.DEPLOY_FE_TARGET }}/server
+            pnpm install
+            pm2 start /opt/site/${{ secrets.DEPLOY_FE_TARGET }}/server/dist/main.js --name site-server
