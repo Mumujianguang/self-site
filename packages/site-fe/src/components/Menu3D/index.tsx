@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect, useState } from 'react';
+import React, { FunctionComponent, MouseEvent, MouseEventHandler, useEffect, useState } from 'react';
 import useRotateAnimation, { RotateDirection, RotateStatus } from '@/hooks/useRotateAnimation';
 import useMouseDrag from '@/hooks/useMouseDrag';
 import useEvent from '@/hooks/useEvent';
@@ -48,7 +48,7 @@ export default function Menu3D(props: Menu3DProps) {
             ])}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
-            onMouseDown={onMouseDown}
+            onMouseDown={onMouseDown as unknown as MouseEventHandler<HTMLDivElement>}
         >
             <div
                 className={styles["component-menu3d-rotate"]}
