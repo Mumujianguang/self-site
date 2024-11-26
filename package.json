@@ -7,11 +7,16 @@
   "scripts": {
     "dev:fe": "pnpm --filter ./packages/site-fe run dev",
     "dev:server": "pnpm --filter ./packages/site-server run start:dev",
+
     "prod:server": "pnpm --filter ./packages/site-server run start:prod",
+
     "build:fe": "pnpm --filter ./packages/site-fe run build",
     "build:server": "pnpm --filter ./packages/site-server run build",
     "build": "pnpm run build:fe && pnpm run build:server",
+
     "release": "pnpm run build && npx tsx ./scripts/release.ts",
+
+    "gen:docsJson": "node ./docs/articles/gen.cjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
