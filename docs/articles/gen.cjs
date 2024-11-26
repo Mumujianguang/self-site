@@ -7,7 +7,6 @@ const files = fs.readdirSync(ROOT_DIR);
 const metaJson = fs.readFileSync(path.resolve(ROOT_DIR, './meta.json'));
 const meta = JSON.parse(metaJson);
 
-console.log(files)
 const mdFiles = files.filter(file => {
     if (file.endsWith('.md')) {
         return true
@@ -22,6 +21,8 @@ const mdFiles = files.filter(file => {
 
 mdFiles.forEach((file) => {
     const fileName = file.replace('.md', '');
+    console.log(fileName)
+
     if (!meta[fileName]) {
         meta[fileName] = {
             summary: ''
@@ -29,4 +30,6 @@ mdFiles.forEach((file) => {
     }
 })
 
-fs.writeFileSync('./meta.json', JSON.stringify(meta, null, 4));
+console.log(meta)
+
+fs.writeFileSync(path.resolve(ROOT_DIR, './meta.json'), JSON.stringify(meta, null, 4));
