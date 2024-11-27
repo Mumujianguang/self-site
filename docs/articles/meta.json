@@ -1,29 +1,38 @@
 {
     "前端动态public path解决方案": {
+        "createTime": "2024-10-08 13:14:49",
         "summary": "关于动态public path的解决方案。在webpack和vite中，public path允许自定义web应用的路径前缀。通常，public path在构建时确定，但有时需要在部署后通过配置修改，而无需重新打包。Webpack提供了__webpack_public_path__来实现动态public path，而vite提供了experimental.renderBuiltUrl选项。然而，这些方法只适用于js和css资源的动态加载，不适用于静态html中的资源标签。因此，提出了两种方案：1）动态标签，通过script标签动态生成资源标签，但会牺牲浏览器的预加载优化；2）服务端渲染（SSR），在服务端拼接资源路径后再渲染，技术成本较高。最后，介绍了一个vite插件vite-plugin-html-public-path，可以在构建后对入口html进行处理，动态生成资源标签。插件允许自定义initialPrefixScript以动态获取public path。有兴趣的可以试用该插件，并在github上反馈问题"
     },
     "Promise拆解计划：手写Promise并通过官方全部测试用例": {
+        "createTime": "2024-10-08 13:14:49",
         "summary": "主题是实现基于Promises/A+规范的Promise，并命名为_Promise。详细介绍了从规范到实现的过程，并通过官方测试用例。首先定义了Promise的状态枚举和类结构，然后实现了构造函数、resolve、reject和then方法。特别强调了then方法的实现难度，包括处理回调函数和Promise Resolution Procedure。最后，提供了_Promise的GitHub源码地址，并展示了如何使用官方的promises-aplus-tests包进行测试。文章旨在帮助读者深入理解Promise的内部机制，并提供了一个完全符合Promises/A+规范的Promise实现"
     },
     "Promise拆解计划：由规范深入，从原理浅出": {
+        "createTime": "2024-10-08 13:14:49",
         "summary": "本文深入探讨了Promises/A+规范，旨在重塑对Promise的理解。文章首先定义了Promise为异步操作的最终结果，并通过then方法接收value或reason。接着，强调了A+规范的开放性，聚焦于提供一个可互用的then方法。文章介绍了Promise的术语，包括promise、thenable、value、reason和exception，并详细解释了Promise状态的处理细则，包括pending、fulfilled和rejected。然后，文章详细描述了then方法的约束条例，包括onFulfilled和onRejected的调用规则、then方法的返回值以及Promise Resolution Procedure的概念。最后，文章预告了下期内容将从规范到实现，切实感受Promise的工作流程。整体而言，文章帮助读者更深入地理解Promise的内部机制和规范要求。"
     },
     "Vapor mode研究计划：从编译结果窥探渲染流程": {
+        "createTime": "2024-10-08 13:14:49",
         "summary": "木木剑光在「Vapor mode 研究计划专栏」中探讨了Vue的Vapor mode，即无虚拟DOM的版本。文章从编译产物的角度出发，分析了插值表达式如何在Vapor mode中渲染和更新。通过Vapor mode的演练场，作者展示了如何在模板中使用响应式变量，并深入探讨了render函数中的template、renderEffect和setText方法。template方法用于创建DOM元素，renderEffect用于收集副作用函数，而setText则用于更新DOM元素内容。文章还探讨了vapor模块源码，解释了template、setText和renderEffect方法的具体实现和作用。最后总结了Vapor mode中插值表达式的工作机制，并预告了下期内容将继续解锁更多Vapor mode的实现细节"
     },
     "Vapor模式研究计划前奏：与 vue1.0 版本的细粒度绑定有什么区别": {
+        "createTime": "2024-10-08 13:14:49",
         "summary": "本文介绍了Vue的“Vapor mode”，即无虚拟DOM渲染模式。Vue团队从Vue 3的主线分支fork出新仓库“core-vapor”以实现这一目标。文章回顾了Vue从1.0到3.0的架构演进，包括Vue 1.0的细粒度绑定、Vue 2.0引入虚拟DOM和组件概念、Vue 3.0的组合式API和性能优化。Vapor mode的灵感来源于SolidJS，旨在将依赖确定时机从运行时移至编译时，减少内存开销并提升首屏渲染效率。作者提出，Vapor mode如何处理细粒度依赖收集带来的内存问题是未来研究的关键"
     },
     "Web端如何实现实时语音识别? 我用 WebRTC + Whisper 找到了答案": {
+        "createTime": "2024-10-08 13:14:49",
         "summary": "本期我们探讨了如何将AI技术，特别是语音识别模型whisper，融入到前端开发中。我们分析了web端语音识别功能的实现，包括语音采集和传输。技术选型包括Vite、React、Antd、recordrtc等前端工具，以及Python后端技术如uvicorn和fastapi。我们实现了一个简单的web应用，包括开始录音和展示识别结果的按钮，以及一个列表展示识别结果。服务端部分，我们使用FastAPI创建了一个/audioToText接口，用于处理音频数据并返回识别结果。最后，我们展示了实现的效果，并讨论了未来可能的改进方向。完整代码已上传至GitHub，感兴趣的同学可以关注"
     },
     "openai whisper": {
+        "createTime": "2024-10-08 13:14:49",
         "summary": "大家好，欢迎来到前端研习圈。本期我们聚焦于通过OpenAI的whisper模型实现语音转文本功能。whisper是一个多任务处理模型，支持语音识别，有多种大小可选。我们选择了Python 3.11.7和PyTorch 2.2.1版本进行环境部署，并安装了pyenv和ffmpeg。通过社区提供的demo，我们成功运行了whisper模型，实现了语音识别功能。测试中，模型准确识别了中文语音，展示了AI的强大能力。最后，我们鼓励前端开发者关注AI技术的发展，将其应用到工作和生活中。"
     },
     "听说最近秘塔AI搜索很火，今天我就以程序员视角来体验一下": {
+        "createTime": "2024-10-08 13:14:49",
         "summary": "本期前端研习圈分享了对“秘塔AI搜索”搜索引擎的使用体验。该引擎以无广告、直达结果为特点，提供简洁、深入、研究三种搜索粒度，满足不同用户需求。其独特的大纲功能和来源聚合功能，能够提高检索效率，帮助用户快速找到精准信息。与百度和谷歌相比，秘塔AI搜索在结果的精准性和相关性上表现更好。作者认为，AI工具正在改变我们的学习和工作方式，合理利用AI可以提升效率，帮助我们更快实现目标。"
     },
     "不知道列表载入动画怎么实现？IntersectionObserver 了解一下": {
+        "createTime": "2024-10-08 13:14:49",
         "summary": "本期分享的是列表元素载入动画的实现思路。随着前端技术的发展，动画已成为提升用户体验的重要元素。要实现列表动画，关键在于确定列表元素是否在可视区域内，以及如何让元素以动画方式进场或离场。我们可以使用IntersectionObserver API来判断目标元素与文档的交叉率，从而知道其是否可见。基于这个API，我们可以封装一个React自定义hook——useIntersectionOb，来观察目标元素的可视状态。然后，通过CSS过渡和transform属性，我们可以设计一个动画组件EntryAnimationBox，用于包裹列表项并实现载入效果。最后，通过一个列表组件示例，我们展示了如何将动画应用到实际项目中。这个实现过程展示了如何将简单的技术组合起来，创造出复杂的效果。希望这个分享能激发大家探索技术背后原理的兴趣。我们下期再见。"
     }
 }
