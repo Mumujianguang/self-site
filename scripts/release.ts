@@ -17,7 +17,11 @@ const ROOT = path.join(__dirname, '../');
 
     // server
     await $`mv ${ROOT}/packages/site-server/dist/ ${ROOT}/dist/server/dist/`;
+    // cp env
     await $`cp ${ROOT}/packages/site-server/.env.production ${ROOT}/dist/server`;
+    // cp 华为 apiclient.json
+    await $`cp ${ROOT}/packages/site-server/agc-apiclient.json ${ROOT}/dist/server`;
+    // cp package.json
     await $`cp ${ROOT}/packages/site-server/package.json ${ROOT}/dist/server`;
 
     await $`cp -r ${ROOT}docs ${ROOT}dist`;
