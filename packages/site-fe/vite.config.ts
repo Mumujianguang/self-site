@@ -9,6 +9,10 @@ export default defineConfig({
         // viteSsrPlugin()
     ],
 
+    define: {
+        __DEV__: process.env.NODE_ENV === 'development',
+    },
+
     server: {
         proxy: {
             '/api': {
