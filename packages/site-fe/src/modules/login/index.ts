@@ -13,11 +13,9 @@ function buildParams() {
     params.append(
         'scope',
         `openid ${[
-            'https://www.huawei.com/healthkit/goals.read',
-            'https://www.huawei.com/healthkit/activehours.read',
-            'https://www.huawei.com/healthkit/strength.read',
-            'https://www.huawei.com/healthkit/distance.read',
-            'https://www.huawei.com/healthkit/calories.read'
+            'https://www.huawei.com/healthkit/activityrecord.read',
+            'https://www.huawei.com/healthkit/activity.read',
+            'https://www.huawei.com/healthkit/location.read'
         ].join(' ')}     `
     );
     
@@ -38,9 +36,9 @@ export default function login() {
 }
 
 export async function authorize() {
-    if (localStorage.getItem('access_token')) {
-        return
-    }
+    // if (localStorage.getItem('access_token')) {
+    //     return
+    // }
 
     parseUrlParams()
     const code = meta.get('code')

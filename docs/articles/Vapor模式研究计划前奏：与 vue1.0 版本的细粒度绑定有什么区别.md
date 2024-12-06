@@ -4,7 +4,7 @@
 
 这是从 Vapor 的 github 仓库中截的一段描述
 
-![](https://files.mdnice.com/user/56690/bbc7d9f9-ddbe-409a-b98e-7668b6e1bb58.png)
+![](http://mmjg.site/imgs/bbc7d9f9-ddbe-409a-b98e-7668b6e1bb58.webp)
 
 为了开发 **Vapor mode**，vue团队从 vue3 的主线分支 fork 出了一个新的仓库「core-vapor」，目标是为了实现 vue 的 **无虚拟DOM** 渲染模式
 
@@ -15,7 +15,7 @@
 
 没有了解过的同学可以看一下这张「渲染流程图」，能帮助你快速建立起对 Vue1.0 版本的认知
 
-![](https://files.mdnice.com/user/56690/b2373779-d4d1-48c2-9a48-1d5ede62a04a.png)
+![](http://mmjg.site/imgs/b2373779-d4d1-48c2-9a48-1d5ede62a04a.webp)
 
 
 在还没有 **SFC**（单文件组件）之前，Vue 可以说是一个实打实的**「运行时」** 框架，上图简要体现了当我们 **new Vue({...})** 之后，发生的一系列过程
@@ -42,13 +42,13 @@
 - 将依赖收集的**粒度**调整为「组件级别」，即一个组件就是一个 **Watcher**
 - 引入了 **虚拟DOM** 并且成为了渲染流程中非常重要的一环
 
-![](https://files.mdnice.com/user/56690/9443187a-f211-4735-99d8-12f3d2fd3d3b.png)
+![](http://mmjg.site/imgs/9443187a-f211-4735-99d8-12f3d2fd3d3b.webp)
 
 整体上来看，**「响应式」**数据不再关注组件内部的「依赖」，当数据被修改后只通知到**组件**，组件再通过 **diff** 算法找出「虚拟DOM」中变化部分，将这部分更新到「真实DOM」上。这本质上是 **时间换空间** 的权衡，通过适当降低**「运行时」**的**「更新效率」**来换取更少的**「内存开销」**
 
 同时期 Vue 也新增了 **SFC（.vue文件）**，由于 **.vue** 文件是框架提供的```“魔法”```，并不能直接交给浏览器去执行，因此就需要一个能打破```“魔法”```的工具，将 **.vue** 转换为 **.js**，这个工具的核心就是 **编译器（compiler）**，打破魔法的过程则被称为 **编译（compile）**，也就是说经过编译后，我们在 **.vue** 文件中写的 ```v-if, v-for, 插值表达式``` 等等特性都会变成普通的 **javascript** 逻辑。**template** 也就是在这个阶段被转换为了 **render** 函数
 
-![](https://files.mdnice.com/user/56690/b58cb367-3d16-4e49-ad08-d9e9edf52ae2.png)
+![](http://mmjg.site/imgs/b58cb367-3d16-4e49-ad08-d9e9edf52ae2.webp)
 
 虽然 1.0 版本中也存在 **compile** 过程，但做的事儿却发生了很大的变化
 

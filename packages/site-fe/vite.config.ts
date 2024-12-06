@@ -22,6 +22,18 @@ export default defineConfig({
         }
     },
 
+    build: {
+        rollupOptions: {
+            output: {
+                manualChunks: {
+                    react: ['react', 'react-dom'],
+                    zustand: ['zustand'],
+                    rehypeHighlight: ['rehype-highlight'],
+                }
+            }
+        }
+    },
+
     resolve: {
         alias: {
             '@': '/src'

@@ -106,7 +106,7 @@ export default function useIntersectionOb(target: RefObject<HTMLElement | null>)
 
 假设这里以 **行** 为单位来做动画，视口以外的 **行元素** 默认隐藏，当进入视口时，通过控制 opacity，transform 等样式配合 transition 进行过度来实现载入效果
 
-![](https://files.mdnice.com/user/56690/2908be4a-b9eb-4d02-bf75-38395ad35174.png)
+![](http://mmjg.site/imgs/2908be4a-b9eb-4d02-bf75-38395ad35174.webp)
 
 那么我们用 **装饰器模式** 设计一个动画组件 -「EntryAnimationBox」来组合上述功能
 
@@ -190,7 +190,7 @@ export default function Notes() {
 
 这就是加上载入动画后的效果，是不是很简单！
 
-![](https://files.mdnice.com/user/56690/c80e6640-63da-4714-8553-82e41b0a80ad.gif)
+![](http://mmjg.site/imgs/c80e6640-63da-4714-8553-82e41b0a80ad.webp)
 
 ## 最后
 

@@ -284,7 +284,7 @@ export default App
 ---
 以上就是 **web应用** 的主要实现逻辑，接下来我们看下实际效果
 
-![](https://files.mdnice.com/user/56690/64064c45-36ce-4c90-8e06-c3a87eca437f.png)
+![](http://mmjg.site/imgs/64064c45-36ce-4c90-8e06-c3a87eca437f.webp)
 
 现在我们已经完成了一个简单页面，接下来就到了 **服务端** 的部分了
 ### 服务端
@@ -353,7 +353,7 @@ python main.py
 ## 效果演示
 这里分别录入了两句话，都正确识别了
 
-![](https://files.mdnice.com/user/56690/57da1bbe-73d2-43e2-987c-9a326d5fa28e.png)
+![](http://mmjg.site/imgs/57da1bbe-73d2-43e2-987c-9a326d5fa28e.webp)
 
 耗时方面则和机器的性能有关，在我们使用的这台测试机上 **识别耗时** 平均3s左右，体验稍差，这也说明进步空间
 
