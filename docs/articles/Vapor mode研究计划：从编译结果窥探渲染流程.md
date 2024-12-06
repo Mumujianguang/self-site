@@ -10,7 +10,7 @@
 
 我们首先来到 [Vapor mode 的演练场](https://vapor-repl.netlify.app/)
 
-![](https://files.mdnice.com/user/56690/c91806c0-aec9-421d-97f1-5e1bec4e5d18.png)
+![](http://mmjg.site/imgs/c91806c0-aec9-421d-97f1-5e1bec4e5d18.webp)
 
 从最简单的模版 **插值表达式** 开始
 - 定义一个 **msg** 的响应式变量
@@ -45,14 +45,14 @@ function render(_ctx) {
 
 也就是如下 **流程:**
 
-![](https://files.mdnice.com/user/56690/422b1723-00d2-4b94-934a-43b43cf44c5d.png)
+![](http://mmjg.site/imgs/422b1723-00d2-4b94-934a-43b43cf44c5d.webp)
 
 但事实是不是和我们推断的一致呢，接下来我们到 **vapor** 模块的源码中去求证一下
 
 ### template
 **template** 方法的实现在 `packages/runtime-vapor/src/dom/template.ts` 中
 
-![](https://files.mdnice.com/user/56690/480c68e5-1dca-4a75-a779-cd858b2eff43.png)
+![](http://mmjg.site/imgs/480c68e5-1dca-4a75-a779-cd858b2eff43.webp)
 
 上图中我们可以看到 **template** 的实现其实非常简单：
 
@@ -70,7 +70,7 @@ function render(_ctx) {
 ### setText
 接下来我们来看与更新 **DOM** 相关的 **setText** 方法，它的实现在 `packages/runtime-vapor/src/dom/prop.ts` 文件中
 
-![](https://files.mdnice.com/user/56690/b805fa6f-f524-40b1-96e6-52e3137d382b.png)
+![](http://mmjg.site/imgs/b805fa6f-f524-40b1-96e6-52e3137d382b.webp)
 
 **setText** 方法的实现也同样很简单，流程大致是这样的：
 
@@ -80,11 +80,11 @@ function render(_ctx) {
 
 「**toDisplayString**」方法实现如下，核心就是兼容处理 **values** 中的 **非字符串** 类型，会将引用类型（数组，对象）序列化为可展示的字符串
 
-![](https://files.mdnice.com/user/56690/dfdab582-a9ac-40d6-b5c2-0bc67790b24d.png)
+![](http://mmjg.site/imgs/dfdab582-a9ac-40d6-b5c2-0bc67790b24d.webp)
 
 「**recordPropMetadata**」方法实现如下
 
-![](https://files.mdnice.com/user/56690/7f61f090-5d40-4498-b801-c3f3694f0aa9.png)
+![](http://mmjg.site/imgs/7f61f090-5d40-4498-b801-c3f3694f0aa9.webp)
 
 通过阅读上面的代码我们可以知道，**DOM** 元素上次渲染值被存储在元素的 **$$metadata** 属性上，其实从元素内容中也能取到内容值，这里为什么需要单独再存在一个属性上，大家可以思考一下
 
@@ -126,7 +126,7 @@ watchEffect(() => {
 
 其实很简单，通过上面的示例相信大家已经理解了，只需要在 **watchEffect** 中，在执行 **dep** 之前将它推入到一个 **栈** 中存储起来，当 **dep** 执行完之后再将其出栈，这样能实现在 **dep** 函数的「执行上下文」中，任何逻辑都能访问到当前正在执行的 **dep** 了
 
-![](https://files.mdnice.com/user/56690/688de88e-a2d6-40b1-9ee7-5a53038a2cac.png)
+![](http://mmjg.site/imgs/688de88e-a2d6-40b1-9ee7-5a53038a2cac.webp)
 
 同时也能够解释，为什么在 **dep** 函数中，我们在 **异步逻辑** 中修改「响应式数据」无法得到预期的结果，因为 **Vue** 在实现上仅支持对 **同步逻辑** 的「依赖收集」。这里可能有同学会说，把 **watchEffect** 变成一个异步函数，**await dep()** 不能实现对 **异步逻辑** 的「依赖收集」了吗
 

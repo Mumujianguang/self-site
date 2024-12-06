@@ -332,7 +332,7 @@ resolutionProcedure(promise2, x, resolve, reject) {
 
 根据官方的文档描述，要执行测试用例我们还需要导出一个标准结构
 
-![](https://files.mdnice.com/user/56690/ace69cdb-d442-447c-a521-55f037429510.png)
+![](http://mmjg.site/imgs/ace69cdb-d442-447c-a521-55f037429510.webp)
 
 那么我们就按照要求导出如下对象
 ```js
@@ -374,7 +374,7 @@ pnpm run test
 
 OK，872个用例全部通过
 
-![](https://files.mdnice.com/user/56690/68cd375f-4791-47e0-b86a-2b3d1347f387.png)
+![](http://mmjg.site/imgs/68cd375f-4791-47e0-b86a-2b3d1347f387.webp)
 
 ## 写在最后
 到这里 ```Promise拆解计划``` 终于完成，这个系列的阶段性目标也达成了，希望这个系列能真正帮助到大家，从此不再受 ```Promise``` 的毒打~

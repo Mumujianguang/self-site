@@ -20,7 +20,7 @@ export default defineConfig({
 
 这样一来，在构建出的 js，css 等资源中都会用 **「绝对路径」** 的方式去加载
 
-![](https://files.mdnice.com/user/56690/1ce49c71-121e-40b3-8120-36c1398dda0a.png)
+![](http://mmjg.site/imgs/1ce49c71-121e-40b3-8120-36c1398dda0a.webp)
 
 如果存在异步加载的 **chunk**，也会用 **「绝对路径」** 进行加载，这里就不进行演示了
 

@@ -33,7 +33,7 @@ export default function Intro() {
                     </Heading>
                     {splitter}
                     <Text>
-                        Here is MMJG「木木剑光」
+                        I am MMJG「木木剑光」
                     </Text>
                 </Blockquote>
                 {splitter}
