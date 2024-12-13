@@ -43,16 +43,16 @@ export default function Intro() {
                 
                 <Separator my="5" size="4" />
                 
-                <Text size={'1'}>这里是我在浩瀚的互联网上的小基地，欢迎友友们来访～</Text>
+                <Text size={'2'}>这里是我在浩瀚的互联网上的小基地，欢迎友友们来访～</Text>
                 {splitter}
-                <Text size={'1'}>
+                <Text size={'2'}>
                     简单介绍一下自己，大二开始接触<Text color='indigo'>「前端」</Text>，
                     毕业后一直在<Text color='indigo'>「数据可视化」</Text>领域深耕，目前工作 5 年。
                     业余时间喜欢探索各种技术的实现原理，给多个知名开源项目贡献过 PR，比如 <Text color='indigo'>antd, rspack, ast-grep... </Text> 
                     偶尔也会输出一些<Text color='indigo'>「技术文章」</Text>，分享一些 最佳实践，源码分析 等等
                 </Text>
                 {splitter}
-                <Text size={'1'}>
+                <Text size={'2'}>
                     运动爱好是 <Text color='indigo'>骑行</Text>，成都天府绿道常驻选手，有一辆公路车
                     <Tooltip
                         content={
@@ -63,8 +63,8 @@ export default function Intro() {
                     </Tooltip>
                 </Text>
                 {splitter}
-                <Text size={'1'}>可以在这些平台找到我 👉</Text>
-                <Text size={'1'}>
+                <Text size={'2'}>可以在这些平台找到我 👉</Text>
+                <Text size={'2'}>
                     {
                         MY_LINKS.map((item, index) => (
                             <Link
@@ -94,7 +94,7 @@ export default function Intro() {
                         <Badge
                             key={index}
                             variant='outline'
-                            size={'2'}
+                            size={'3'}
                         >
                             {item}
                         </Badge>
