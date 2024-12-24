@@ -37,7 +37,7 @@ export default function Notes() {
                 title={store.activeNote?.title}
                 onClose={() => store.setActiveNote(null)}
             >
-                <div>
+                <div className={styles['notes-content-active']}>
                     <Markdown rehypePlugins={[rehypeHighlight]}>{store.activeNote?.content}</Markdown>
                 </div>
             </Modal>
