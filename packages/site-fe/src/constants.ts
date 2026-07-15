@@ -78,3 +78,8 @@ export const MY_LINKS = [
         url: 'https://x.com/mmjianguang',
     },
 ]
+
+export const UI_COMPONENTS = {
+    name: '@mmjg/ui-components',
+    url: 'https://mmjg-team.github.io/ui-components/',
+}
